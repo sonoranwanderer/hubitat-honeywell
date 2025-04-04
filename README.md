@@ -59,11 +59,11 @@ For a new setup, on your Hubitat:
 * Click "View Device Details"
 * Go to the Preferences tab
 * Fill in:
-** MQTT Broker IP Address
-** MQTT Broker Port
-** MQTT Broker Topic
-** MQTT Broker Username
-** MQTT Broker Password
+  * MQTT Broker IP Address
+  * MQTT Broker Port
+  * MQTT Broker Topic
+  * MQTT Broker Username
+  * MQTT Broker Password
 * Click "Save"
 
 Optional but recommended while getting through the initial setup is to set the
