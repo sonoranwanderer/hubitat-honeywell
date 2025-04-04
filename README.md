@@ -165,15 +165,16 @@ Receiving Honeywell sensor events requires:
 * rtl_433 binary / program
 * Host system with an available USB port and ability to run rtl_433
 
-The host system can run any OS so long as you can get a rtl_433 up and running.
+The host system can run any OS so long as you can get rtl_433 up and running.
 
 rtl_433 can run on command line arguments, a config file or both.
 
 rtl_433 can be obtained here: https://github.com/merbanan/rtl_433
 
-If you are running linux you may be able to install rtl_433 using the OS' 
-package manager (e.g. apt in Ubuntu or Debian).
+If you are running Linux you may be able to install rtl_433 using the OS' 
+package manager. E.g. in Ubuntu or Debian:
 
+    apt install rtl-433
 
 With the RTL-SDR device plugged in and attached to an antenna, you can run a 
 simple test with: 
@@ -187,14 +188,15 @@ events on the command line that look like this:
 
 How many events you see may have a lot to do with how well your antenna is tuned
 for 345MHz. You may find some sensors don't show up at all, some come through 
-strong and others have an occasional event show up.
+strong (single physical events show multiple, upwards of ten repeats) and others 
+have an occasional event show upi as a single report.
 
 Some notes on antenna tuning. Short of purchasing off Alibaba, I could not find
-a ready maded 345MHz antenna. However the RTL-SDR I have came with two sets of 
+a ready made 345MHz antenna. However the RTL-SDR I have came with two sets of 
 rabbit ears. Using an antenna analyzer, I was able to tune the larger set by 
 adjusting both poles (ears) length to 22.875 inches. Combined as 45.75 inches 
 this comes out to a 1.25 wavelength for 345MHz and drastically increase the 
-number of sensor signals I was picking up. 
+number of sensor signals being picking up. 
 
 I purchased a kit very similar to this: https://a.co/d/gUSarWu
 (This is not an endorsement and I receive no commissions on that link)
@@ -203,7 +205,7 @@ Once you are satisfied with the reception of sensor signals, the next step is to
 get rtl_433 pushing events to your MTTQ broker.
 
 Pick s directory from which you will start rtl_433 and in that directory, create
-a config file similar to the one below, replac9ng the username and password as 
+a config file similar to the one below, replacing the username and password as 
 appropriate for your MQTT setup.
 
     === Begin sample rtl_433 config file
@@ -236,3 +238,10 @@ tutorials online. The important aspects are:
     Topic. This setup uses a single topic structure, suggested:
     /hubitat/honeywell/events
 
+If you run Linuix, you may find MQTT is in the distribution's package system. 
+E.g. in Ubuntu:
+
+    apt install mosquitto
+
+Here is a handy guide for setting up MQTT on Ubuntu:
+https://docs.litmus.io/litmusedge/how-to-guides/integration-guides/install-mosquitto-mqtt-broker-ubuntu
