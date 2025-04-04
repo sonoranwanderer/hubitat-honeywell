@@ -2,7 +2,7 @@
 Hubitat device driver for Honeywell / Ademco 345MHz wireless security system
 sensors
 
-Currently on Contact and Motion Sensors are supported.
+Currently only Contact and Motion Sensors are supported.
 
 This driver loads Honeywell or Ademco 345MHz alerts from an MQTT topic, parses
 and feeds them into Virtual Contact or Motion Sensor child devices. Sensor
