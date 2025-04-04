@@ -23,7 +23,7 @@ support any integration with your security system controller.
 ## Data Flow
 Data / Signal flow looks like:
 
-<sensor> --wireless--> <antenna> --> <rtl-sdr device> <--USB--> <rtl_433> --> <MQTT Broker> <--> <Hubitat / Honeywell Wireless Sensors driver> --> <Virtual Motion / Contact Sensor>
+    <sensor> --wireless--> <antenna> --> <rtl-sdr device> <--USB--> <rtl_433> --> <MQTT Broker> <--> <Hubitat / Honeywell Wireless Sensors driver> --> <Virtual Motion / Contact Sensor>
 
 The rtl-sdr and MQTT broker can exist on the same or different hosts using any OS that supports rtl_433 and MQTT software.
 
@@ -206,14 +206,14 @@ Pick s directory from which you will start rtl_433 and in that directory, create
 a config file similar to the one below, replac9ng the username and password as 
 appropriate for your MQTT setup.
 
-=== Begin sample rtl_433 config file
-frequency      344975000
-protocol       70
-report_meta    time:unix
-output         mqtt://192.168.50.232:1883,user=MQTT_user,pass=MQTT_password,retain=0,events=hubitat/honeywell/events
-output         json
-output         log
-=== End sample rtl_433 config file
+    === Begin sample rtl_433 config file
+    frequency      344975000
+    protocol       70
+    report_meta    time:unix
+    output         mqtt://192.168.50.232:1883,user=MQTT_user,pass=MQTT_password,retain=0,events=hubitat/honeywell/events
+    output         json
+    output         log
+    === End sample rtl_433 config file
 
 The second and third output lines (json, log) are not necessary, and just serve
 to help to debug the process. Once you are satified everything works, you can 
